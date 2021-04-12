@@ -67,4 +67,8 @@
 9. **创建于合并分支**
 
     - `git branch <branchname>`，创建新的分支
-    - `git checkout <branchname>`，切换到新分支
+    - `git checkout/switch <branchname>`，切换到新分支，使用`switch`操作更容易让人理解。
+    - `git switch -c <branch>|git checkout -b <branchname>`，创建并切换新分支。
+    - `git merge <designated branchname>`，我们在某个分支下进行的修改在另一个分支下是不可见的，可以通过`merger`操作来实现分支合并，最后删除我们创建的分支。
+    - `git branch -d <branchname>`，删除分支。
+    - 尽量使用创建新的分支来完成工作任务，最终再进行合并并删除分支，这与直接在`maste`分支上完成是一样的效果，但过程更安全。
