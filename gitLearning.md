@@ -32,7 +32,7 @@
     - `git add` 实际上就是将文件修改添加到暂存区;`git commit`就是将暂存区的所有内容提交到当前分支。
     - 利用 `git status` 查看现有的文件是否被修改或是新创建的文件。
     
-    [工作区和版本库2](./images/workArea2.jpg)  
+    ![工作区和版本库2](./images/workArea2.jpg)  
     
     - `git diff` 比较工作区(work dict)和暂存区(stage)区域快照之间的差异，只显示已修改但尚未暂存的改动，即执行`git add`后该差异就会消失。
     - `git diff --cached`是暂存区(stage)和分支(branch)的比较。
