@@ -10,7 +10,7 @@
 
 2. **git 版本回退**
     
-    - 我们可以使用 `git log --pretty=oneline` 查看该git库提交历史
+    - 我们可以使用 `git log --pretty=oneline` 查看该git库提交历史。
     - `git reset --hard head~n` 用来执行回退操作，n代表回退的步长
     <center>![回退示意图1](./images/gitReset.png)
     ![回退示意图2](./images/gitReset2.png) </center>  
@@ -22,12 +22,14 @@
  
 3. **工作区和暂存区**  
 
-    <center>![工作区和版本库](./images/workArea.jpg)</center>
+    <center>![工作区和版本库](./images/workArea.jpg)</center>  
+    
     - 工作区就是电脑本地能看到的目录,包括隐藏目录`.git`，暂存区是暂时存放的已修改文件，
     - `git add` 实际上就是将文件修改添加到暂存区;`git commit`就是将暂存区的所有内容提交到当前分支。
     - 利用 `git status` 查看现有的文件是否被修改或是新创建的文件。
     
-    <center>![](./images/workArea2.jpg)</center>
+    <center>![工作区和版本库2](./images/workArea2.jpg)</center>  
+    
     - `git diff` 比较工作区(work dict)和暂存区(stage)区域快照之间的差异，只显示已修改但尚未暂存的改动，即执行`git add`后该差异就会消失。
     - `git diff --cached`是暂存区(stage)和分支(branch)的比较。
 
@@ -59,3 +61,6 @@
     - `git clone git@github.com:xxxx/xxx.git`，git支持多种协议，其中`ssh`协议的速度最快，`https`协议速度最慢。
 
 9. **创建于合并分支**
+
+    - `git branch <branchname>`，创建新的分支
+    - `git checkout <branchname>`，切换到新分支
