@@ -64,7 +64,7 @@
 
     - `git clone git@github.com:xxxx/xxx.git`，git支持多种协议，其中`ssh`协议的速度最快，`https`协议速度最慢。
 
-9. **创建于合并分支**
+9. **创建与合并分支**
 
     - `git branch <branchname>`，创建新的分支
     - `git checkout/switch <branchname>`，切换到新分支，使用`switch`操作更容易让人理解。
