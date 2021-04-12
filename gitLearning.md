@@ -13,12 +13,12 @@
     - 我们可以使用 `git log --pretty=oneline` 查看该git库提交历史。
     - `git reset --hard head~n` 用来执行回退操作，n代表回退的步长
 
-    <center>[回退示意图1](./images/gitReset.png)  
-    [回退示意图2](./images/gitReset2.png) </center>   
+    ![回退示意图1](./images/gitReset.png)  
+    ![回退示意图2](./images/gitReset2.png)
 
     - 使用 `git reflog` 来查看该git库的提交命令历史，通过确定`commit_id`来确认需要回退的版本id
 
-    <center>[快进指令图](./images/gitVersionCode.png)</center>  
+    ![快进指令图](./images/gitVersionCode.png)  
 
     - 因为有head指针，所以回退速度很快；对于已经上传到远程库的如果想做改动如(A->B->C，现在想回到B，那么只能做一个B的快照变为A->B->C->B，不能直接到B然后强行删除C`git push -f`(除非是个人项目))，只能在本地先做改动之后再执行如下命令。
     - `git pull`
@@ -26,13 +26,13 @@
  
 3. **工作区和暂存区**  
 
-    <center>[工作区和版本库](./images/workArea.jpg)</center>  
+    ![工作区和版本库](./images/workArea.jpg)
     
     - 工作区就是电脑本地能看到的目录,包括隐藏目录`.git`，暂存区是暂时存放的已修改文件，
     - `git add` 实际上就是将文件修改添加到暂存区;`git commit`就是将暂存区的所有内容提交到当前分支。
     - 利用 `git status` 查看现有的文件是否被修改或是新创建的文件。
     
-    <center>[工作区和版本库2](./images/workArea2.jpg)</center>  
+    [工作区和版本库2](./images/workArea2.jpg)  
     
     - `git diff` 比较工作区(work dict)和暂存区(stage)区域快照之间的差异，只显示已修改但尚未暂存的改动，即执行`git add`后该差异就会消失。
     - `git diff --cached`是暂存区(stage)和分支(branch)的比较。
