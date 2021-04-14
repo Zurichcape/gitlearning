@@ -67,11 +67,12 @@
 
 6. **建立远程库**
 
-    - 首先在github上创建一个新的repository，然后通过`git remote origin git@github.com:xx/xx.git`与远程库建立联系，如果github库输入错误的话，需要执行`git remote rm origin`，然后再重新建立联系；可以使用`git remote -v`查看远程库信息。
+    - 首先在`github`或者`gitte`上创建一个新的`repository`，然后通过`git remote origin git@github.com:xx/xx.git`与远程库建立联系，如果github库输入错误的话，需要执行`git remote rm origin`，然后再重新建立联系；可以使用`git remote -v`查看远程库信息。
     
     - `git pull --rebase origin <branch>`，当本地库和远程库不一致时需要先执行`pull`命令将远程库不一致的内容拷贝到本地，使用`git branch`可以查看本地branch的名字。
 
     - `git push -u origin <branch>`，将本地的`main`分支的内容上传到远程库`master`分支，参数`-u`能使两者关联起来以简化以后的命令。
+
 
 7. **ssh-key的创建**
 
@@ -173,3 +174,42 @@
 
 	- `git push oritin:refs/tags/<tag-name>`，删除推送到远程库的`tag`。
 
+17. **自定义git**
+
+	- 创建一个`.gitignore`文件，将要忽略的文件名填进去，`git`就会自动忽略这些文件。
+
+	- 忽略操作系统自动生成的文件，如缩略图。
+
+	- 忽略编译生成的中间文件，可执行文件等，也就是如果一个文件是由另一个文件生成的，那么久没必要放进版本库，如java编程生成的`.class`文件。
+
+	- 忽略你自己的带有敏感信息的配置文件，如存放口令的配置文件。
+
+	- `git check-ignore -v <file-name>`，查询是否该文件是否被加入了`.gitignore`中
+
+	- `.*`在`.gitignore`中时可能会导致文件本身被忽略而不能被添加到版本库，此时可以在`.gitignore`中添加`!.gitignore`。
+	
+	- 自定义别名，`git config --global alias.<new name> <default name>`
+
+	- `git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"`.
+
+	- `--global`参数对当前用户起作用，不加参数默认对当前仓库起作用，每个仓库的配置文件位置`.git/config`，而当前用户的Git配置文件在`.gitconfig`中。
+
+18. **搭建Git服务器**
+
+	- `sudo apt-get install git`，在`linux`上安装`git	`。
+
+	- `sudo adduser git`，创建一个`git`用户。
+
+	- 创建证书登录，收集所有开发者的`id_rsa.pub`文件，导入`/home/git/authorized_keys`文件中(人数少的话可以这么操作，人多可以利用[Gitosis](https://github.com/res0nat0r/gitosis)来进行管理)
+
+	- `sudo git init --base <repositary-name>`，创建仓库。
+
+	- `sudo chown -R git:git <repositary-name>`，修改仓库用户权限。
+
+	- 禁用`shell`等登录，通过编辑`/etc/passwd。
+	
+	- `git:x:1001:1001:,,,:/home/git:/bin/bash`改为`git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell`；这样能保证用户可以通过`ssh`使用`git`但无法登录`shell`
+
+19. **Git图形化界面**
+
+	- SourceTree
